@@ -3,6 +3,14 @@ html {
   position: relative;
 }
 
+img {
+  margin: 30px;
+  text-align:center;
+  border-color: black;
+  border-width:1px;
+  border-style: solid;
+}
+
 .content {
   margin-left: auto;
   margin-right: auto;
@@ -12,13 +20,53 @@ html {
 
 .content p {
   font-size: 18px;
-  line-height: 32px;
+  line-height: 40px;
+  color: rgb(130,130,130);
+}
 
+.date{
+  font-size: 16px;
+  color:gray;
+  padding-top:20px;
+}
 
+h1 {
+  font-size: 28px;
+  margin: 20px 0px;
 }
 
 /* if you change the ul you'll change the header menu topright as well */
 ul {
+}
+
+
+.post-homepage{
+  position:relative;
+  height:40px;
+}
+
+.post-date {
+  display:inline;
+  font-size: 16px;
+  color:gray;
+  position:absolute;
+  padding-top:15px;
+}
+
+/* -- title is deprecated  */
+/* .post-title {
+  display:inline;
+  font-size: 18px;
+  position:absolute;
+  margin-left: 100px;
+} */
+
+.post-short-intro{
+  position:absolute;
+  font-size:16px;
+  margin-left: 100px;
+  padding-top:15px;
+
 }
 
 
