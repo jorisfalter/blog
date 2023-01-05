@@ -45,6 +45,23 @@ ul {
   color: rgb(130, 130, 130);
 }
 
+/* grid stuff */
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px auto;
+  gap: 10px;
+  /* grid-auto-columns: minmax(100px, auto); */
+}
+.grid-date {
+  font-size: 16px;
+  color: gray;
+}
+.grid-short-intro {
+  font-size: 16px;
+  line-height: 30px;
+}
+/* end grid stuff */
+
 .post-homepage {
   position: relative; /*needs to be relative for the post-short-intro to be absolute*/
   height: 40px;
