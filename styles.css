@@ -62,48 +62,6 @@ ul {
 }
 /* end grid stuff */
 
-.post-homepage {
-  position: relative; /*needs to be relative for the post-short-intro to be absolute*/
-  height: 40px;
-  /* overflow: auto; */
-  display: inline-block;
-}
-
-.post-date {
-  display: inline;
-  font-size: 16px;
-  color: gray;
-  padding-top: 15px;
-}
-
-.post-short-intro {
-  position: absolute;
-  left: 200px;
-  font-size: 16px;
-  /* margin-left: 100px; */
-  /* padding-top: 15px; */
-  display: inline-block;
-}
-
-/* for unknown reasons I need to specify the width of the post-short-intro class, otherwise it becomes very narrow */
-@media screen and (min-width: 200px) {
-  .post-short-intro {
-    width: 200px;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .post-short-intro {
-    width: 300px;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .post-short-intro {
-    width: 800px;
-  }
-}
-
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
