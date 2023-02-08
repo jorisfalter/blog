@@ -11,6 +11,10 @@ img {
   border-style: solid;
 }
 
+h2 {
+  font-size: 20px;
+}
+
 .content {
   margin-left: auto;
   margin-right: auto;
