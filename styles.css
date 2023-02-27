@@ -28,6 +28,12 @@ h2 {
   color: rgb(130, 130, 130);
 }
 
+.coupleReferences {
+  font-size: 12px;
+  font-style: italic;
+}
+/* this one gets overruled */
+
 .date {
   font-size: 16px;
   color: gray;
