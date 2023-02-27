@@ -29,7 +29,7 @@ h2 {
 }
 
 .coupleReferences {
-  font-size: 12px;
+  font-size: 14px !important;
   font-style: italic;
 }
 /* this one gets overruled */
