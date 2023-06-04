@@ -9,6 +9,7 @@ img {
   border-color: black;
   border-width: 1px;
   border-style: solid;
+  max-width: 100%
 }
 
 h2 {
