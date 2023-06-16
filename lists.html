@@ -7,22 +7,17 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#includedContent").load("headerNavBar.html");
+        });
+    </script>
 
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <p class="navbar-brand"><a href="index.html">HOTEL REMOTE</a></p>
+    <div id="includedContent"></div>
 
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li id="home"><a href="index.html">HOME</a></li>
-                <li id="about"><a href="about.html">ABOUT</a></li>
-                <li id="about"><a href="lists.html">LISTS</a></li>
-            </ul>
-        </div>
-    </nav>
     <div class=" container">
         <div class="date">2 May 2023</div>
         <div class="content">
