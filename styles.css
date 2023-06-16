@@ -19,6 +19,10 @@ h2 {
 .brand-link{
   color:#777 !important
 }
+.navbar-header.navbar-brand a {
+  color:#777 !important
+
+}
 
 .navbar-brand a:hover{
   text-decoration-line: none;
