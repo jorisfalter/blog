@@ -16,7 +16,7 @@ h2 {
   font-size: 20px;
 }
 
-navbar-brand a:hover{
+.navbar-brand a:hover{
   text-decoration-line: none;
 
 }
