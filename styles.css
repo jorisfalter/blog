@@ -16,11 +16,13 @@ h2 {
   font-size: 20px;
 }
 
-.brand-link{
+
+.navbar-brand a {
   color:#777 !important
 }
-.navbar-header.navbar-brand a {
-  color:#777 !important
+
+.navbar-brand a:hover{
+  color:#333 !important
 
 }
 
