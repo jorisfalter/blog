@@ -128,6 +128,7 @@ ul {
 /* dit is een test om te zien of ik de font op mobile op de homepage kan oplossen */
 @media (max-width: 768px) {
 .grid-short-intro{
-  font-size: 30px;
+  /* font-size: 30px;
+  background-color: yellow; */
 }
 }
