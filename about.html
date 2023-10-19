@@ -7,18 +7,12 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <p class="navbar-brand">HOTEL REMOTE</p>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li id="home"><a href="index.html">HOME</a></li>
-        <li id="about"><a href="about.html">ABOUT</a></li>
-        <!-- <li id="contact"><a href="/contact">CONTACT US</a></li> -->
-      </ul>
-    </div>
-  </nav>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $("#includedContent").load("headerNavBar.html");
+    });
+  </script>
 
 <body>
   <div class="container">
