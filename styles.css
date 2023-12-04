@@ -14,8 +14,16 @@ img {
 
 h2 {
   font-size: 20px;
+  /* color:#26428b; */
+  color:blue;
+
 }
 
+h3 {
+  font-size: 20px;
+  /* color: #38761d; */
+  color: green;
+}
 
 .navbar-brand a {
   color:#777 !important
