@@ -70,8 +70,8 @@ h1 {
 }
 
 /* if you change the ul you'll change the header menu topright as well */
-ul {
-}
+/* ul {
+} */
 
 .content li {
   margin: 14px;
@@ -134,9 +134,9 @@ ul {
 }
 
 /* dit is een test om te zien of ik de font op mobile op de homepage kan oplossen */
-@media (max-width: 768px) {
-.grid-short-intro{
+/* @media (max-width: 768px) { */
+/* .grid-short-intro{ */
   /* font-size: 30px;
   background-color: yellow; */
-}
-}
+/* } */
+/* } */
