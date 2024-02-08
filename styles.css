@@ -62,8 +62,16 @@ h3 {
   font-size: 16px;
   color: gray;
   padding-top: 20px;
-  margin-left:10px;
 }
+
+/* on browser the date should align with the header title, on mobile it should align with the article content */
+@media screen and (max-width: 768px) {
+  .date {
+    margin-left: 10px;
+  }
+}
+
+
 
 h1 {
   font-size: 28px;
