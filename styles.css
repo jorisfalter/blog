@@ -39,12 +39,6 @@ h3 {
 
 }
 
-.content {
-  margin-left: auto;
-  margin-right: auto;
-  overflow-y: hidden;
-  max-width: 700px;
-}
 
 .content p {
   font-size: 18px;
@@ -64,8 +58,19 @@ h3 {
   padding-top: 20px;
 }
 
-/* on browser the date should align with the header title, on mobile it should align with the article content */
+/* browser only */
+@media screen and (min-width: 768px) {
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden;
+    max-width: 700px;
+  }
+  }
+
+/* mobile only */
 @media screen and (max-width: 768px) {
+  /* on browser the date should align with the header title, on mobile it should align with the article content */
   .date {
     margin-left: 10px;
   }
