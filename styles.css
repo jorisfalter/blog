@@ -80,6 +80,11 @@ h3 {
     margin-right: 15%;
     overflow-y: hidden;
   }
+
+  .content p {
+    font-size: 20px;
+    color:yellow;
+  }
 }
 
 
