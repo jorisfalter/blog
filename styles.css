@@ -151,6 +151,10 @@ h1 {
   color: #fff;
 }
 
+.public-backlog p{
+  font-size:16px 
+}
+
 /* dit is een test om te zien of ik de font op mobile op de homepage kan oplossen */
 /* @media (max-width: 768px) { */
 /* .grid-short-intro{ */
