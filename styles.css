@@ -152,7 +152,13 @@ h1 {
 }
 
 .public-backlog p{
-  font-size:16px 
+  font-size:16px; 
+}
+
+.sub-bullets{
+  font-size: 16px;
+  padding-left:20px;
+  line-height:1.7;
 }
 
 /* dit is een test om te zien of ik de font op mobile op de homepage kan oplossen */
