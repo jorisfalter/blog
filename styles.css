@@ -23,7 +23,6 @@ h3 {
   font-size: 20px;
   /* color: #38761d; */
   color: green;
-  margin-top:60px;
 }
 
 .navbar-brand a {
@@ -160,6 +159,11 @@ h1 {
   font-size: 16px;
   padding-left:20px;
   line-height:1.7;
+}
+
+.books-pics{
+  margin-bottom:60px;
+
 }
 
 /* dit is een test om te zien of ik de font op mobile op de homepage kan oplossen */
