@@ -41,4 +41,16 @@ window.onmousemove = resetTimer;
 window.onmousedown = resetTimer; // catches touchscreen presses
 window.onclick = resetTimer; // catches touchpad clicks
 window.onscroll = resetTimer; // catches scrolling with arrow keys
-window.onkeypress = resetTimer;
+window.onkeydown = resetTimer;
+
+function showPopup() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+};
