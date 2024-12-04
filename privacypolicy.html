@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Joris' Homepage</title>
+    <meta name="viewport" content="width=device-width" , initial-scale=1 />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#includedContent").load("headerNavBar.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="includedContent"></div>
+
+    <div class=" container">
+        <h1>Privacy Policy for Link Summary</h1>
+        <p>Effective Date: <strong>[Insert Date]</strong></p>
+
+        <h2>Introduction</h2>
+        <p><strong>Link Summary</strong> ("the Extension") is designed to enhance your browsing experience by allowing
+            you to generate summaries of articles and webpage content through the OpenAI API. We are committed to
+            protecting your privacy and ensuring transparency about how we handle your data.</p>
+
+        <h2>What Data Do We Collect?</h2>
+        <p>The Extension does not collect, store, or share any personal data. However, it may interact with external
+            services and APIs as part of its functionality.</p>
+        <ul>
+            <li><strong>API Key Storage:</strong> The Extension uses Chrome's <code>storage.local</code> feature to
+                securely store your OpenAI API key. This key is provided by you and is only accessible within the
+                Extension to facilitate API requests.</li>
+            <li><strong>URL Processing:</strong> The Extension processes the URL of the webpage or link you want to
+                summarize. These URLs are temporarily sent to the OpenAI API to generate summaries. The URLs are not
+                stored or shared by the Extension.</li>
+        </ul>
+
+        <h2>How Is Your Data Used?</h2>
+        <p>The Extension uses the data you provide solely for its intended purpose:</p>
+        <ul>
+            <li><strong>API Key:</strong> The OpenAI API key is used to authenticate requests to OpenAI's servers. The
+                key is not shared outside of the Extension or stored on any external server.</li>
+            <li><strong>Webpage URLs:</strong> URLs are sent to OpenAI's API to generate content summaries. These URLs
+                are not logged or stored by the Extension after the API call.</li>
+        </ul>
+
+        <h2>Do We Share Your Data?</h2>
+        <p>We do not sell, share, or disclose your data to any third parties. However, data such as webpage URLs are
+            sent to the OpenAI API for processing, as this is necessary for the functionality of the Extension. Please
+            refer to <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a>
+            for details on how they handle your data.</p>
+
+        <h2>How Is Your Data Secured?</h2>
+        <ul>
+            <li><strong>Local Storage:</strong> The OpenAI API key is securely stored using Chrome's
+                <code>storage.local</code> API. This ensures that the key is isolated to your browser and is not
+                accessible by other websites or extensions.</li>
+            <li><strong>Secure API Requests:</strong> All requests to the OpenAI API are encrypted using HTTPS to ensure
+                the security of your data in transit.</li>
+        </ul>
+
+        <h2>User Responsibility</h2>
+        <p>To ensure the safe usage of the Extension:</p>
+        <ul>
+            <li>Do not share your OpenAI API key with others.</li>
+            <li>Use the Extension responsibly and avoid summarizing sensitive or private content.</li>
+        </ul>
+
+        <h2>Your Choices</h2>
+        <p>You can manage your OpenAI API key through the Extension's settings. At any time, you can:</p>
+        <ul>
+            <li>Remove the stored API key via the Chrome extension settings or options page.</li>
+            <li>Uninstall the Extension to remove all stored data.</li>
+        </ul>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other
+            operational, legal, or regulatory reasons. When changes occur, the updated Privacy Policy will be made
+            available via the Extension’s listing in the Chrome Web Store.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or the Extension’s data practices, please
+            contact us at: <strong>[Your Email Address]</strong></p>
+
+        <h2>Summary</h2>
+        <p>This Privacy Policy ensures transparency and outlines the data practices of <strong>Link Summary</strong>. By
+            using the Extension, you agree to the terms of this Privacy Policy. Your data is handled responsibly and
+            securely, with a focus on privacy and user control.</p>
+
+
+
+    </div>
+    <div class="footer-padding"></div>
+    <div class="footer">
+        <p>Learned with ❤️ from The App Brewery</p>
+    </div>
+    </div>
+</body>
+
+</html>
