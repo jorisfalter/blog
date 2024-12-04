@@ -31,19 +31,20 @@
         <p>The Extension does not collect, store, or share any personal data. However, it may interact with external
             services and APIs as part of its functionality.</p>
         <ul>
-            <li><strong>API Key Storage:</strong> The Extension uses Chrome's <code>storage.local</code> feature to
-                securely store your OpenAI API key. This key is provided by you and is only accessible within the
-                Extension to facilitate API requests.</li>
+            <li><strong>OpenAI API Key:</strong> The Extension uses a developer-provided OpenAI API key embedded in the
+                code. This key is used only to authenticate requests to OpenAI’s servers and is not accessible to users
+                or third parties.</li>
             <li><strong>URL Processing:</strong> The Extension processes the URL of the webpage or link you want to
                 summarize. These URLs are temporarily sent to the OpenAI API to generate summaries. The URLs are not
                 stored or shared by the Extension.</li>
         </ul>
 
         <h2>How Is Your Data Used?</h2>
-        <p>The Extension uses the data you provide solely for its intended purpose:</p>
+        <p>The Extension uses the data solely for its intended purpose:</p>
         <ul>
-            <li><strong>API Key:</strong> The OpenAI API key is used to authenticate requests to OpenAI's servers. The
-                key is not shared outside of the Extension or stored on any external server.</li>
+            <li><strong>API Key:</strong> The developer-provided OpenAI API key is used to authenticate requests to
+                OpenAI's servers. It is securely included within the Extension and not accessible to users or other
+                parties.</li>
             <li><strong>Webpage URLs:</strong> URLs are sent to OpenAI's API to generate content summaries. These URLs
                 are not logged or stored by the Extension after the API call.</li>
         </ul>
@@ -56,9 +57,8 @@
 
         <h2>How Is Your Data Secured?</h2>
         <ul>
-            <li><strong>Local Storage:</strong> The OpenAI API key is securely stored using Chrome's
-                <code>storage.local</code> API. This ensures that the key is isolated to your browser and is not
-                accessible by other websites or extensions.</li>
+            <li><strong>API Key Security:</strong> The developer-provided OpenAI API key is securely embedded in the
+                Extension and not exposed to users or third parties.</li>
             <li><strong>Secure API Requests:</strong> All requests to the OpenAI API are encrypted using HTTPS to ensure
                 the security of your data in transit.</li>
         </ul>
@@ -66,16 +66,13 @@
         <h2>User Responsibility</h2>
         <p>To ensure the safe usage of the Extension:</p>
         <ul>
-            <li>Do not share your OpenAI API key with others.</li>
             <li>Use the Extension responsibly and avoid summarizing sensitive or private content.</li>
         </ul>
 
         <h2>Your Choices</h2>
-        <p>You can manage your OpenAI API key through the Extension's settings. At any time, you can:</p>
-        <ul>
-            <li>Remove the stored API key via the Chrome extension settings or options page.</li>
-            <li>Uninstall the Extension to remove all stored data.</li>
-        </ul>
+        <p>Since the OpenAI API key is provided by the developer, there are no user-configurable settings for the API
+            key. If you wish to stop using the Extension, you can uninstall it at any time, which removes all associated
+            functionality.</p>
 
         <h2>Changes to This Privacy Policy</h2>
         <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other
@@ -84,7 +81,7 @@
 
         <h2>Contact Us</h2>
         <p>If you have any questions or concerns about this Privacy Policy or the Extension’s data practices, please
-            contact us at: <strong>[Your Email Address]</strong></p>
+            contact us at: <strong>joris at jorisfalter dot com</strong></p>
 
         <h2>Summary</h2>
         <p>This Privacy Policy ensures transparency and outlines the data practices of <strong>Link Summary</strong>. By
