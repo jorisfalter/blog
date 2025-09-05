@@ -43,9 +43,10 @@ window.onclick = resetTimer; // catches touchpad clicks
 window.onscroll = resetTimer; // catches scrolling with arrow keys
 window.onkeydown = resetTimer;
 
-function showPopup() {
-  document.getElementById("myModal").style.display = "block";
-}
+//// shows a popup after 15 seconds
+// function showPopup() {
+//   document.getElementById("myModal").style.display = "block";
+// }
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
