@@ -13,7 +13,7 @@ Europe / Netherlands Pro:
 
 Europe Con:
 -Median Age is way to high (studies show GDP growth declines after median age is above 38 years old)
--Children stuff is at overcapacity and / or underfunded: daycares, indoor playgrounds, schools, ... Daycares are ran by private equity and overpriced - Facepalm!
+-Children stuff is at overcapacity: daycares, indoor playgrounds, ... Daycares are ran by private equity and overpriced - Facepalm!
 
 Thailand Pro:
 -people smile (I think people in Europe feel obliged to look unhappy and frustrated )
@@ -23,6 +23,7 @@ Thailand Pro:
 -They don't take stuff that seriously, they communicate in stickers on Line (the local Whatsapp)
 -People are building in Thailand - a lot, people are optimistic.
 -I loved working from Starbucks: great AC and friendly baristas
+-They love children
 
 Thailand Con:
 -Advertising everywhere: in the metro, in the elevator, billboards, on the metro stations, often with sound
