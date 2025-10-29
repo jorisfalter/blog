@@ -1,4 +1,32 @@
-# Amsterdam Vs Thailand
+_29 Oct 2025_
+
+Unsorted list of Pros and Cons in Thailand vs Europe
+
+Europe / Netherlands Pro:
+-regulation on airline delays. The amount of times Asian airlines give you the proverbial finger
+-2 years of guarantee on electronics. The amount of chinese garbage in Thailand ...
+-No borders and single currency. Currency isn't the worst, but passing immigration every time is a pain in the ass easily adding 1-2 hours.
+-Attempts to recycle - and thrift stores!
+-Bicycle paths (in the Netherlands)
+-Public transport
+
+Europe Con:
+-Median Age is way to high (studies show GDP growth declines after median age is above 38 years old)
+
+Thailand Pro:
+-people smile (I think people in Europe feel obliged to look unhappy and frustrated )
+-all beaches are public (shame on you Italy)
+-extremely safe: people wear expensive jewelry and bags on the street and NO-ONE gets robbed
+-I wanted to write Roaming costs in the Pro Europe - but frankly Thai carriers are cheaper, and have easy foreign bundles
+-They don't take stuff that seriously, they communicate in stickers on Line (the local Whatsapp)
+-People are building in Thailand - a lot, people are optimistic.
+-I loved working from Starbucks: great AC and friendly baristas
+
+Thailand Con:
+-Advertising everywhere: in the metro, in the elevator, billboards, on the metro stations, often with sound
+-Car obsessed
+-Focused on (cheap) Mass Tourism
+-Refugee center of the world (Russia, Israel, China to a certain extent)
 
 _12 May 2025_
 
