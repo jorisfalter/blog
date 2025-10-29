@@ -9,9 +9,11 @@ Europe / Netherlands Pro:
 -Attempts to recycle - and thrift stores!
 -Bicycle paths (in the Netherlands)
 -Public transport
+-Public outdoor playgrounds
 
 Europe Con:
 -Median Age is way to high (studies show GDP growth declines after median age is above 38 years old)
+-Children stuff is at overcapacity and / or underfunded: daycares, indoor playgrounds, schools, ... Daycares are ran by private equity and overpriced - Facepalm!
 
 Thailand Pro:
 -people smile (I think people in Europe feel obliged to look unhappy and frustrated )
