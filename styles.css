@@ -82,6 +82,11 @@ h3 {
     overflow-y: hidden;
     max-width: 700px;
   }
+  
+  .content img {
+    max-height: 40vh;
+    object-fit: contain;
+  }
   }
 
 /* mobile only */
