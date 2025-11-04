@@ -9,7 +9,17 @@ img {
   border-color: black;
   border-width: 1px;
   border-style: solid;
-  max-width: 100%
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.content img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
 }
 
 h2 {
@@ -93,9 +103,11 @@ h1 {
 } */
 
 .content li {
-  margin: 14px;
-  font-size: 18px;
-  color: rgb(35, 28, 28);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666;
+  margin: 6px 0;
 }
 
 /* grid stuff */
