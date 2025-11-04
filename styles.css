@@ -16,10 +16,11 @@ img {
 
 .content img {
   max-width: 600px;
-  width: 100%;
   height: auto;
   display: block;
   margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 h2 {
