@@ -67,6 +67,12 @@ h3 {
   font-size: 14px !important;
   font-style: italic;
 }
+
+.footnote {
+  font-size: 12px !important;
+  font-style: italic;
+  color: #888;
+}
 /* this one gets overruled */
 
 .date {
