@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Joris' Homepage</title>
+  <meta name="viewport" content="width=device-width" , initial-scale=1 />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $("#includedContent").load("headerNavBar.html");
+    });
+  </script>
+</head>
+
+
+<body>
+
+  <div id="includedContent"></div>
+
+  <div class="container">
+
+    <div class="date">5 Jan 2026</div>
+    <div class="content">
+
+      <h1>Motivational Stuff</h1>
+
+      <p>It doesn't work when I make a list. Because when I need the motivation, I don't have the decision energy to
+        select from the list.</p>
+
+      <p>So this is a random motivational idea generator. Inspired by an earlier project I did.</p>
+
+      <div class="motivation-display" id="randomMotivation"></div>
+
+      <style>
+        .motivation-display {
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: 18px;
+          line-height: 32px;
+          color: #333;
+          background-color: #f8f9fa;
+          border-left: 4px solid #1abc9c;
+          padding: 24px 28px;
+          margin: 32px 0;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .motivation-display i {
+          font-style: italic;
+        }
+      </style>
+
+      <script>
+        const motivations = [
+          "If you and your spouse feel <i>meh</i>, how will your relationship feel? <br> If you and your spouse feel <b>on top of the world</b>, how will your relationship feel?",
+          "Put on some Music - Move - create energy",
+          "Listen to Wolf Of Wall Street",
+          "Search YouTube for a motivational video",
+          "Read a marketing book, read Forbes",
+          "Take a 15 minute walk - even better a 15 minute run"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * motivations.length);
+        document.getElementById('randomMotivation').innerHTML = motivations[randomIndex];
+      </script>
+
+    </div>
+
+  </div>
+  <div class="footer-padding"></div>
+  <div class="footer">
+    <p>Learned with ❤️ from The App Brewery</p>
+  </div>
+  </div>
+</body>
+
+</html>
