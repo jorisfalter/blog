@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio — Joris Falter</title>
+  <link rel="icon" type="image/x-icon" href="pics/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Joris Falter — 30+ projects built with Python, React, Node.js, AI, and more.">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-44YC9GRGJB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-44YC9GRGJB');
+  </script>
+
+  <style>
+    .portfolio-intro {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px 15px 10px;
+    }
+
+    .portfolio-intro .tagline {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .portfolio-intro .tags-section {
+      margin-bottom: 30px;
+    }
+
+    .portfolio-intro .tags-section p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-intro .tags-section i {
+      color: #888;
+    }
+
+    .portfolio-intro .social-links {
+      margin-bottom: 20px;
+    }
+
+    .portfolio-intro .social-links a {
+      margin-right: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .portfolio-intro .social-links a:hover {
+      color: #1abc9c;
+    }
+
+    .projects-list {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 15px 80px;
+    }
+
+    .project {
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+    }
+
+    .project-number {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #bbb;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .project p {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+    }
+
+    .project a {
+      color: #333;
+      text-decoration: underline;
+      text-decoration-color: #ccc;
+      text-underline-offset: 3px;
+    }
+
+    .project a:hover {
+      color: #1abc9c;
+      text-decoration-color: #1abc9c;
+    }
+
+    .project .tech-tag {
+      display: inline-block;
+      font-size: 11px;
+      color: #999;
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    .project ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .project li {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .coming-soon {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-intro {
+        padding: 10px 5% 10px;
+      }
+      .projects-list {
+        padding: 0 5% 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMenu">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-brand"><a href="index.html">JORIS FALTER</a></p>
+      </div>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html#writing">WRITING</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="lists.html">LISTS</a></li>
+          <li class="active"><a href="portfolio.html">PORTFOLIO</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="portfolio-intro">
+      <h1>Portfolio</h1>
+
+      <p class="tagline">
+        I build fun, exciting projects. I build things which spark excitement and energy. I build things which help people dream.
+      </p>
+
+      <div class="tags-section">
+        <p><strong>Tools:</strong> <i>Notion, Jira, Confluence, Cloudflare, Airtable, Sendgrid, Postmark, Convertkit, Github, Heroku, Render, Vercel, Fly.io, Make.com, …</i></p>
+        <p><strong>Tech:</strong> <i>Google Apps Script, Node, React, Next, EJS, MongoDB, Python, …</i></p>
+        <p><strong>AI (and related):</strong> <i>ChatGPT API, Llama API, Replicate, Dall-e, Elevenlabs, Stable-Diffusion, Cursor, Claude, Langchain, Ollama, …</i></p>
+        <p><strong>Social:</strong> <i>LinkedIn, Twitter</i></p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/jorisfalter" target="_blank">⌨️ GitHub</a>
+        <a href="https://www.linkedin.com/in/jorisfalter/" target="_blank">💼 LinkedIn</a>
+        <a href="https://twitter.com/JorisFalter" target="_blank">𝕏 Twitter</a>
+      </div>
+    </div>
+
+    <div class="projects-list">
+      <h3 style="color: #333; margin-bottom: 30px;">Projects</h3>
+
+      <div class="project">
+        <div class="project-number">Project 1</div>
+        <p>ChatGPT wrapper in <a href="https://www.ai-juniors.com/" target="_blank">AI-Juniors</a>.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 2</div>
+        <p>Frontend development for <a href="https://www.reggiohome.com/" target="_blank">Reggio-Home</a> (using Next).</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 3</div>
+        <p><a href="https://aicoach-f874501ff53a.herokuapp.com/" target="_blank">AI Coach</a>, with a Python backend.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 4</div>
+        <p>FlightRadar API usage for <a href="https://www.wheredoesthea380fly.com/" target="_blank">wheredoesthea380fly</a>, Node backend, MongoDB, Mapbox.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 5</div>
+        <p>FlightAware API usage for <a href="https://www.flightsforflaneurs.com/" target="_blank">FlightsForFlaneurs</a>, Node backend, MongoDB.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 6</div>
+        <p><a href="https://news.ycombinator.com/item?id=40128970" target="_blank">Read Vertical Like the Japanese</a>: in Google Apps Script.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 7</div>
+        <p>Raspberry Pi Project which turns a light on when a specific bascule bridge in the Netherlands opens. Hardware in micro python + Small scraping part because the Dutch government didn't gave me API access. Then it deploys to <a href="https://bridgeopen-0fd60d885493.herokuapp.com/ledstatus" target="_blank">a website I host on Heroku</a>, where the Raspberry gets the bridge status from. First hardware app I've built, looking for inspiration for follow-up projects.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 8</div>
+        <p>Automatic check if new jobs are posted to a freelance platform. Sends emails with new jobs content using Postmark.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 9</div>
+        <p>Notion tool to reread my goals, principles, marketing plans, project plans, … with a Python backend.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 10</div>
+        <p>A selection of (sometimes irritating) marketing Tools. Active on my <a href="https://www.jorisfalter.com/" target="_blank">personal blog</a>.</p>
+        <ul>
+          <li>A popup which appears if you stay idle on the page</li>
+          <li>The tab context changing when you're on another tab</li>
+          <li>…</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 11</div>
+        <p>The project I got the most attention with up to now: <a href="https://randomairport.onrender.com/" target="_blank">RandomAirport</a>. A NodeJS backend and a React frontend. And a Notion(!) database. Uses the Google Maps API. High dependency on Jetphotos.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 12</div>
+        <p><a href="https://samedayblocker.com/" target="_blank">SameDayBlocker</a>: A Google Calendar integration in Apps Script.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 13</div>
+        <p>Not sure if the name 'project' worthy, but I made a <a href="https://jorisfalter.github.io/qwixxdice/" target="_blank">digital dice</a> when we didn't have a physical one.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 14</div>
+        <p><a href="https://expatareas-2c28a4908ab7.herokuapp.com/" target="_blank">ExpatAreas</a>, a map of interesting places to live (unfinished).</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 15</div>
+        <p>Copenhagen Marathon: A tool which allowed me to constantly track the resale platform of Copenhagen Marathon and eventually buy a ticket. Using Pushover App for Push Notifs, and first time using Cloudflare Workers, Cloudflare KV storage and Cloudflare email service. Way better solution compared to VisualPing.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 16</div>
+        <p>A <a href="https://pitchdeckgenerator.fly.dev/" target="_blank">Pitch Deck Content Generator</a> based on the Antler program's pitchdeck template. This is an exploration project to check if we can go to a full-fledged pitchdeck generator. Built with ChatGPT API, using NodeJS. First time usage of Webflow to design the UI, using a <a href="https://webflow.com/templates/html/devtask-marketplace-website-template" target="_blank">DEVTask template</a>. First time using Fly.io.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 17</div>
+        <p>Link Summary Chrome Extension: <a href="https://chromewebstore.google.com/detail/hover-summary/aclmlajdkcnegianablildjnelpplpbm" target="_blank">Chrome Extension Store</a> — get summaries of headlines by hovering over them.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 18</div>
+        <p>Mini project to rebuild a <a href="https://www.rijkswaterstaat.nl/water/waterbeheer" target="_blank">Dutch government website on water management</a> into <a href="https://waterbeheer-front-e6a87c6ea5d4.herokuapp.com/" target="_blank">something a 5 year old could understand</a>, so my spouse can use it in her classroom.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 19</div>
+        <p>Important Date Tracker: <a href="https://datetracker.vercel.app/" target="_blank">In Production Testing now</a>. In NextJS, SqLiteCloud.io, Deployed on Vercel, Tanstack Reacttable, Postmark. Abandoned.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 20</div>
+        <p>Truck Mapping <a href="https://truckrouting.fly.dev/" target="_blank">POC</a>. Fly.io, NodeJS, Google Maps API.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 21</div>
+        <p>Scraping a FB Expat group to do trends analysis.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 22</div>
+        <p>A <a href="https://weekendaway.fly.dev/" target="_blank">dashboard</a> with the next 10 planes landing at Schiphol. Schiphol API and Flightradar24 API.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 23</div>
+        <p>An app which allows to see your <a href="https://twitter-followers.fly.dev/" target="_blank">twitter followers</a>. Built using Fly.io, Apify, Twitter (X), Stripe, React.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 24</div>
+        <p>An app which generates and curates <a href="https://www.aidreamhouse.com/" target="_blank">AI Dreamhouses</a>. Built with Replicate, Flux, TypeScript, Next.js.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 25</div>
+        <p><a href="https://www.airtraveltechjobs.com/" target="_blank">Air Travel Tech Jobs</a> — A platform listing interesting travel companies. Static website.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 26</div>
+        <p>My passion for <a href="https://www.1000headlines.com/" target="_blank">Good Marketing Copy</a> in a curated list growing to 1000 headlines. Built with Next.js, TypeScript.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 27</div>
+        <p>A start to my <a href="https://jorisfalter.github.io/dataWorks/" target="_blank">Automation Agency Website</a>. Static website.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-number">Project 28</div>
+        <p>A RAG application test which indexes the Berkshire Hathaway annual reports — <a href="https://www.berkshire-bot.com/" target="_blank">Berkshire-Bot</a>. Backend in Python.</p>
+      </div>
+
+      <div class="project coming-soon">
+        <div class="project-number">Project 29</div>
+        <p>Pushup Counter (Coming Soon). Uses Supabase, Python, Waha, first time Hetzner VPS.</p>
+      </div>
+
+      <div class="project coming-soon">
+        <div class="project-number">Project 30</div>
+        <p>Plane Above Me (Coming Soon).</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-padding"></div>
+  <div class="footer">
+    <p>Joris Falter — Amstelveen, Netherlands</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
