@@ -20,190 +20,339 @@
   </script>
 
   <style>
-    /* Hero Section */
+    * { box-sizing: border-box; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes textReveal {
+      from { opacity: 0; transform: translateY(100%); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 34, 34, 0.1); }
+      50% { box-shadow: 0 0 0 12px rgba(34, 34, 34, 0); }
+    }
+
+    /* Scroll-triggered: hidden by default */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ===== HERO ===== */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 60px 20px;
       position: relative;
+      overflow: hidden;
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 720px;
+    }
+
+    .hero-name-wrap {
+      overflow: hidden;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      font-weight: 300;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      color: #222;
+      font-size: 56px;
+      font-weight: 200;
+      letter-spacing: 6px;
+      color: #111;
+      margin: 0;
+      animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero .role {
+      font-size: 14px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 36px;
+      animation: fadeIn 1s 0.4s both;
     }
 
     .hero .subtitle {
-      font-size: 20px;
-      color: #666;
+      font-size: 19px;
+      color: #555;
       font-family: Georgia, 'Times New Roman', serif;
-      line-height: 1.6;
-      margin-bottom: 32px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      animation: fadeUp 1s 0.6s both;
     }
 
     .pills {
-      margin-bottom: 40px;
+      margin-bottom: 44px;
+      animation: fadeUp 1s 0.8s both;
     }
 
     .pill {
       display: inline-block;
-      padding: 6px 18px;
-      margin: 4px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      font-size: 13px;
-      letter-spacing: 1px;
+      padding: 8px 20px;
+      margin: 5px;
+      border: 1px solid #e0e0e0;
+      border-radius: 24px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
       color: #555;
       background: #fafafa;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .pill:hover {
+      border-color: #222;
+      color: #222;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .hero-buttons {
-      margin-bottom: 40px;
+      margin-bottom: 44px;
+      animation: fadeUp 1s 1s both;
     }
 
     .hero-buttons a {
       display: inline-block;
-      padding: 12px 32px;
+      padding: 14px 36px;
       margin: 6px;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 12px;
+      letter-spacing: 3px;
       text-decoration: none;
-      border-radius: 3px;
-      transition: all 0.2s;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
     }
 
     .btn-primary-hero {
-      background: #222;
+      background: #111;
       color: #fff;
-      border: 2px solid #222;
+      border: 2px solid #111;
     }
 
     .btn-primary-hero:hover {
-      background: #444;
-      border-color: #444;
-      color: #fff;
+      background: transparent;
+      color: #111;
       text-decoration: none;
     }
 
     .btn-secondary-hero {
       background: transparent;
-      color: #222;
+      color: #111;
       border: 2px solid #ddd;
     }
 
     .btn-secondary-hero:hover {
-      border-color: #222;
+      border-color: #111;
       text-decoration: none;
-      color: #222;
     }
 
+    .social-links {
+      text-align: center;
+      animation: fadeIn 1s 1.2s both;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 16px;
+      font-size: 13px;
+      color: #aaa;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #111;
+      transform: translateY(-2px);
+    }
+
+    /* Scroll indicator */
     .scroll-hint {
       position: absolute;
-      bottom: 30px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 13px;
+      text-decoration: none;
+      animation: float 2.5s ease-in-out infinite, fadeIn 1s 1.5s both;
+    }
+
+    .scroll-hint span {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: #ccc;
+      margin: 0 auto 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-hint span::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { top: -100%; }
+      50% { top: 100%; }
+      100% { top: 100%; }
+    }
+
+    .scroll-hint small {
+      font-size: 9px;
+      letter-spacing: 3px;
       color: #bbb;
-      letter-spacing: 2px;
-      text-decoration: none;
-    }
-
-    .scroll-hint:hover {
-      color: #888;
-      text-decoration: none;
-    }
-
-    /* What I Do Section */
-    .what-i-do {
-      padding: 80px 0;
-      border-top: 1px solid #eee;
-    }
-
-    .what-i-do h2 {
-      text-align: center;
-      font-size: 14px;
-      letter-spacing: 4px;
       text-transform: uppercase;
-      color: #999;
-      margin-bottom: 50px;
+    }
+
+    /* ===== WHAT I DO ===== */
+    .what-i-do {
+      padding: 100px 0;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 60px;
     }
 
     .skill-card {
       text-align: center;
-      padding: 20px;
+      padding: 40px 24px;
       margin-bottom: 30px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+    }
+
+    .skill-card:hover {
+      border-color: #eee;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
     }
 
     .skill-card .icon {
-      font-size: 36px;
-      margin-bottom: 16px;
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .skill-card:hover .icon {
+      transform: scale(1.15);
     }
 
     .skill-card h3 {
-      font-size: 18px;
-      color: #222;
-      margin-bottom: 10px;
+      font-size: 16px;
+      color: #111;
+      margin-bottom: 12px;
       font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .skill-card p {
       font-size: 14px;
       color: #888;
-      line-height: 1.7;
+      line-height: 1.8;
       font-family: Georgia, 'Times New Roman', serif;
     }
 
-    /* Social Links */
-    .social-links {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      margin: 0 12px;
-      font-size: 14px;
-      color: #888;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-
-    .social-links a:hover {
-      color: #222;
-    }
-
-    /* Blog Section */
+    /* ===== BLOG / WRITING ===== */
     .blog-section {
-      padding: 80px 0 40px;
-      border-top: 1px solid #eee;
-    }
-
-    .blog-section h2 {
-      text-align: center;
-      font-size: 14px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 50px;
+      padding: 100px 0 60px;
+      border-top: 1px solid #f0f0f0;
     }
 
     .blog-year {
-      font-size: 22px;
-      color: #ccc;
-      font-weight: 300;
-      margin: 30px 0 15px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #f0f0f0;
+      font-size: 48px;
+      color: #f0f0f0;
+      font-weight: 200;
+      margin: 50px 0 20px;
+      letter-spacing: 4px;
     }
 
     .blog-entries {
@@ -211,28 +360,96 @@
       margin: 0 auto;
     }
 
-    /* Override defaults for hero page */
+    .blog-entry {
+      padding: 12px 0;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .blog-entry:hover {
+      padding-left: 8px;
+      border-bottom-color: #eee;
+    }
+
+    .blog-entry .grid-date {
+      transition: color 0.3s;
+    }
+
+    .blog-entry:hover .grid-date {
+      color: #111;
+    }
+
+    .blog-entry .grid-short-intro a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .blog-entry .grid-short-intro a:hover {
+      color: #000;
+    }
+
+    /* ===== NAV ===== */
     .hero-page .navbar {
       background: transparent;
       border: none;
       box-shadow: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+
+    .hero-page .navbar.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .hero-page .footer {
       position: relative;
+      background: #111;
     }
 
+    .hero-page .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* ===== CURSOR GLOW (subtle) ===== */
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,0,0,0.02) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
+        letter-spacing: 3px;
+      }
+
+      .hero .role {
+        font-size: 11px;
+        letter-spacing: 4px;
       }
 
       .hero .subtitle {
-        font-size: 17px;
+        font-size: 16px;
       }
 
       .hero {
-        min-height: 80vh;
+        min-height: 85vh;
         padding: 40px 15px;
       }
 
@@ -240,13 +457,29 @@
         grid-template-columns: 1fr;
         gap: 2px;
       }
+
+      .blog-year {
+        font-size: 32px;
+      }
+
+      .cursor-glow {
+        display: none;
+      }
+
+      .social-links a {
+        margin: 0 10px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 
 <body class="hero-page">
 
-  <nav class="navbar navbar-default">
+  <!-- Cursor glow effect -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <nav class="navbar navbar-default" id="mainNav">
     <div class="container">
       <div class="navbar-header">
         <p class="navbar-brand">JORIS FALTER</p>
@@ -262,7 +495,10 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Joris Falter</h1>
+      <div class="hero-name-wrap">
+        <h1>Joris Falter</h1>
+      </div>
+      <p class="role">Developer · Builder · Maker</p>
       <p class="subtitle">
         Full-stack developer building at the intersection of technology and marketing.
         Python, React, Node.js — with a focus on AI and automation.
@@ -285,30 +521,33 @@
         <a href="https://github.com/jorisfalter" target="_blank">⌨️ GitHub</a>
       </div>
     </div>
-    <a href="#what-i-do" class="scroll-hint">↓</a>
+    <a href="#what-i-do" class="scroll-hint">
+      <span></span>
+      <small>scroll</small>
+    </a>
   </section>
 
   <!-- WHAT I DO -->
   <section class="what-i-do" id="what-i-do">
     <div class="container">
-      <h2>What I Do</h2>
+      <h2 class="section-label reveal">What I Do</h2>
       <div class="row">
         <div class="col-md-4">
-          <div class="skill-card">
+          <div class="skill-card reveal delay-1">
             <div class="icon">🛠</div>
             <h3>Build</h3>
             <p>Full-stack applications with Python, React, and Node.js. From MVPs to production systems.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="skill-card">
+          <div class="skill-card reveal delay-2">
             <div class="icon">🤖</div>
             <h3>Automate</h3>
             <p>AI integrations, LLM workflows, and marketing automation. Making technology work smarter.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="skill-card">
+          <div class="skill-card reveal delay-3">
             <div class="icon">🚀</div>
             <h3>Ship</h3>
             <p>Side projects, tools, and ideas — from concept to live product. Builder by nature.</p>
@@ -321,156 +560,182 @@
   <!-- BLOG / WRITING -->
   <section class="blog-section" id="writing">
     <div class="container">
-      <h2>Writing</h2>
+      <h2 class="section-label reveal">Writing</h2>
       <div class="blog-entries">
 
-        <div class="blog-year">2026</div>
+        <div class="blog-year reveal">2026</div>
 
-        <div class="wrapper">
-          <div class="grid-date">26 February 2026</div>
-          <div class="grid-short-intro"><a href="post21.html">Biographies</a></div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">26 February 2026</div>
+            <div class="grid-short-intro"><a href="post21.html">Biographies</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">14 February 2026</div>
-          <div class="grid-short-intro"><a href="post20.html">Hello, I'm the Bot</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">14 February 2026</div>
+            <div class="grid-short-intro"><a href="post20.html">Hello, I'm the Bot</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">5 January 2026</div>
-          <div class="grid-short-intro"><a href="post19.html">Motivation</a></div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">5 January 2026</div>
+            <div class="grid-short-intro"><a href="post19.html">Motivation</a></div>
+          </div>
         </div>
-        <br>
 
-        <div class="blog-year">2025</div>
+        <div class="blog-year reveal">2025</div>
 
-        <div class="wrapper">
-          <div class="grid-date">4 November 2025</div>
-          <div class="grid-short-intro"><a href="post18.html">Scam Attempt</a></div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">4 November 2025</div>
+            <div class="grid-short-intro"><a href="post18.html">Scam Attempt</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">29 October 2025</div>
-          <div class="grid-short-intro"><a href="post17.html">Your Engineering Job Is Safe</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">29 October 2025</div>
+            <div class="grid-short-intro"><a href="post17.html">Your Engineering Job Is Safe</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">12 May 2025</div>
-          <div class="grid-short-intro">Started writing <a href="listAmsterdamVsThailand.html">my thoughts about Amsterdam vs Thailand</a> after 10 months in Amsterdam and 6 years in Thailand</div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">12 May 2025</div>
+            <div class="grid-short-intro">Started writing <a href="listAmsterdamVsThailand.html">my thoughts about Amsterdam vs Thailand</a></div>
+          </div>
         </div>
-        <br>
 
-        <div class="blog-year">2024</div>
+        <div class="blog-year reveal">2024</div>
 
-        <div class="wrapper">
-          <div class="grid-date">18 July 2024</div>
-          <div class="grid-short-intro">We're moving the Netherlands!</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">18 July 2024</div>
+            <div class="grid-short-intro">We're moving the Netherlands!</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">23 April 2024</div>
-          <div class="grid-short-intro"><a href="post14.html">Reading Vertical Like Traditional Japanese</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">23 April 2024</div>
+            <div class="grid-short-intro"><a href="post14.html">Reading Vertical Like Traditional Japanese</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">27 Jan 2024</div>
-          <div class="grid-short-intro"><a href="post13.html">How we're building a life in Phuket as a remote working family</a></div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">27 Jan 2024</div>
+            <div class="grid-short-intro"><a href="post13.html">How we're building a life in Phuket as a remote working family</a></div>
+          </div>
         </div>
-        <br>
 
-        <div class="blog-year">2023</div>
+        <div class="blog-year reveal">2023</div>
 
-        <div class="wrapper">
-          <div class="grid-date">20 Nov 2023</div>
-          <div class="grid-short-intro">I did a triathlon in Phuket last weekend. Full story <a href="https://jorisfalter.ck.page/posts/newsletter-53-triathlon">here</a>!</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">20 Nov 2023</div>
+            <div class="grid-short-intro">I did a triathlon in Phuket last weekend. Full story <a href="https://jorisfalter.ck.page/posts/newsletter-53-triathlon">here</a>!</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">16 Oct 2023</div>
-          <div class="grid-short-intro">I built <a href="https://www.airtraveltechjobs.com">Air Travel Tech Jobs</a> as well as <a href="https://www.wheredoesthea380fly.com">Where Does The A380 Fly</a> in last 2 months!</div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">16 Oct 2023</div>
+            <div class="grid-short-intro">I built <a href="https://www.airtraveltechjobs.com">Air Travel Tech Jobs</a> and <a href="https://www.wheredoesthea380fly.com">Where Does The A380 Fly</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">5 Oct 2023</div>
-          <div class="grid-short-intro">I published my <a href="listOfMiniAdventures.html">list of mini-adventures</a> as I have 10 days on my own soon.</div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">5 Oct 2023</div>
+            <div class="grid-short-intro">Published my <a href="listOfMiniAdventures.html">list of mini-adventures</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">25 Mar 2023</div>
-          <div class="grid-short-intro">Yesterday I threw <a href="https://randomairport.onrender.com/">Random Airport</a> on <a href="https://www.producthunt.com/posts/random-airport">ProductHunt</a> not expecting much. To my surprise it got more than 50 upvotes.</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">25 Mar 2023</div>
+            <div class="grid-short-intro"><a href="https://randomairport.onrender.com/">Random Airport</a> on <a href="https://www.producthunt.com/posts/random-airport">ProductHunt</a> — 50+ upvotes</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">26 Mar 2023</div>
-          <div class="grid-short-intro">Hackernews submission <a href="post11.html">failed</a> :(</div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">26 Mar 2023</div>
+            <div class="grid-short-intro">Hackernews submission <a href="post11.html">failed</a> :(</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">19 Feb 2023</div>
-          <div class="grid-short-intro">List of couples who run or ran a business together. <a href="listOfCouples.html">Last Updated June 16 2023</a>.</div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">19 Feb 2023</div>
+            <div class="grid-short-intro"><a href="listOfCouples.html">Couples who run a business together</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">30 Jan 2023</div>
-          <div class="grid-short-intro">Uploaded Part I of my <a href="publicAlchemy.html">principles</a>.</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">30 Jan 2023</div>
+            <div class="grid-short-intro">Uploaded Part I of my <a href="publicAlchemy.html">principles</a></div>
+          </div>
         </div>
-        <br>
 
-        <div class="blog-year">2022</div>
+        <div class="blog-year reveal">2022</div>
 
-        <div class="wrapper">
-          <div class="grid-date">4 Nov 2022</div>
-          <div class="grid-short-intro"><a href="newsletter10.html">Newsletter #10</a>: Shipping</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">4 Nov 2022</div>
+            <div class="grid-short-intro"><a href="newsletter10.html">Newsletter #10</a>: Shipping</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">28 Oct 2022</div>
-          <div class="grid-short-intro"><a href="newsletter9.html">Newsletter #9</a>: Projects</div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">28 Oct 2022</div>
+            <div class="grid-short-intro"><a href="newsletter9.html">Newsletter #9</a>: Projects</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">11 Oct 2022</div>
-          <div class="grid-short-intro"><a href="newsletter7.html">Newsletter #7</a>: Trenitalia Scraper</div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">11 Oct 2022</div>
+            <div class="grid-short-intro"><a href="newsletter7.html">Newsletter #7</a>: Trenitalia Scraper</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">4 Oct 2022</div>
-          <div class="grid-short-intro"><a href="newsletter6.html">Newsletter #6</a>: Launching Same Day Blocker</div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">4 Oct 2022</div>
+            <div class="grid-short-intro"><a href="newsletter6.html">Newsletter #6</a>: Launching Same Day Blocker</div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">26 Mar 2022</div>
-          <div class="grid-short-intro">European Startups website ... <a href="post10.html">Read More</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">26 Mar 2022</div>
+            <div class="grid-short-intro">European Startups website ... <a href="post10.html">Read More</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">6 Feb 2022</div>
-          <div class="grid-short-intro">Building a train in HTML ... <a href="post8.html">Read More</a></div>
+        <div class="blog-entry reveal delay-3">
+          <div class="wrapper">
+            <div class="grid-date">6 Feb 2022</div>
+            <div class="grid-short-intro">Building a train in HTML ... <a href="post8.html">Read More</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">27 Jan 2022</div>
-          <div class="grid-short-intro">Are there still "Hell Yeah" companies out there? ... <a href="post6.html">Read More</a></div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">27 Jan 2022</div>
+            <div class="grid-short-intro">Are there still "Hell Yeah" companies? ... <a href="post6.html">Read More</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">8 Jan 2022</div>
-          <div class="grid-short-intro">Two solutions to actually get some work done ... <a href="post3.html">Read More</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">8 Jan 2022</div>
+            <div class="grid-short-intro">Two solutions to actually get some work done ... <a href="post3.html">Read More</a></div>
+          </div>
         </div>
-        <br>
 
-        <div class="blog-year">2021</div>
+        <div class="blog-year reveal">2021</div>
 
-        <div class="wrapper">
-          <div class="grid-date">11 Dec 2021</div>
-          <div class="grid-short-intro">Two ideas to create more efficient cooling... <a href="post2.html">Read More</a></div>
+        <div class="blog-entry reveal delay-1">
+          <div class="wrapper">
+            <div class="grid-date">11 Dec 2021</div>
+            <div class="grid-short-intro">Two ideas to create more efficient cooling... <a href="post2.html">Read More</a></div>
+          </div>
         </div>
-        <br>
-        <div class="wrapper">
-          <div class="grid-date">25 Nov 2021</div>
-          <div class="grid-short-intro">My next job will be 100% remote... <a href="post1.html">Read More</a></div>
+        <div class="blog-entry reveal delay-2">
+          <div class="wrapper">
+            <div class="grid-date">25 Nov 2021</div>
+            <div class="grid-short-intro">My next job will be 100% remote... <a href="post1.html">Read More</a></div>
+          </div>
         </div>
-        <br>
 
       </div>
     </div>
@@ -480,6 +745,52 @@
   <div class="footer">
     <p>Joris Falter — Amstelveen, Netherlands</p>
   </div>
+
+  <script>
+    // ===== Intersection Observer for scroll reveals =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ===== Navbar background on scroll =====
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // ===== Subtle cursor glow (desktop only) =====
+    const glow = document.getElementById('cursorGlow');
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      });
+    }
+
+    // ===== Smooth scroll for anchor links =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 
 </body>
 
