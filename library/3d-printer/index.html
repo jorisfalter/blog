@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D printer | Joris Falter</title>
+<meta name="description" content="3D printer">
+<link rel="canonical" href="https://www.jorisfalter.com/library/3d-printer/">
+<link rel="icon" type="image/x-icon" href="/pics/favicon.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/library/library.css?v=20261109">
+
+<script defer src="https://analytics.ai-tigers.com/script.js" data-website-id="aed01abf-dd34-4f20-b607-52ec263e6122"></script>
+</head>
+<body>
+<nav class="navbar navbar-default"><div class="container"><div class="navbar-header">
+<p class="navbar-brand"><a href="/">JORIS FALTER</a></p></div>
+<ul class="nav navbar-nav navbar-right"><li><a href="/#trainings">TRAININGS</a></li><li><a href="/#library">LIBRARY</a></li><li><a href="/about.html">ABOUT</a></li></ul>
+</div></nav>
+<main class="lib">
+<p class="meta">25 Oct 2026? · 0:37</p><h1>3D printer</h1>
+<a class="yt" href="https://youtu.be/BJB_nL0AGn0" data-yt="BJB_nL0AGn0" aria-label="Play the video: 3D printer"><img src="https://i.ytimg.com/vi/BJB_nL0AGn0/hqdefault.jpg" alt="" width="480" height="360"><span class="yt-play"></span></a>
+</main>
+<div class="footer"><p>Joris Falter — Lilongwe, Malawi</p></div>
+<script>
+var ro = new ResizeObserver(function (es) { es.forEach(function (x) { x.target.style.setProperty('--s', x.contentRect.width / 1920); }); });
+document.querySelectorAll('.deck-frame').forEach(function (f) { ro.observe(f); });
+document.querySelectorAll('.yt').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0';
+    f.title = a.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.className = 'yt';
+    a.replaceWith(f);
+  });
+});
+</script>
+</body>
+</html>

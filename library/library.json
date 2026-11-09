@@ -1,0 +1,58 @@
+{
+  "_readme": "Source of the Library on jorisfalter.com. Newest first is computed from 'date'. Build: python3 scripts/build-library.py (brand repo). 'check_date': true marks a date still to confirm (shown as '?' in the build).",
+  "items": [
+    {
+      "slug": "agent-vps-playbook",
+      "title": "Agent VPS Playbook",
+      "date": "2026-10-23",
+      "summary": "One Markdown file your AI agent follows to lock down a Hetzner server: nothing reachable from the internet, your sites still online. You approve the risky steps.",
+      "md": {"repo": "/opt/codex-workspaces/agent-vps-playbook", "file": "PLAYBOOK.md", "price": "€19"},
+      "related": ["server-security"],
+      "training": "vps"
+    },
+    {
+      "slug": "server-security",
+      "title": "Server security, simply",
+      "date": "2026-11-02",
+            "video": "t6gGXBU8IQA",
+      "deck": {"config": "scripts/deck-server-security.json", "src": "decks/server-security"},
+      "related": ["agent-vps-playbook"],
+      "training": "vps"
+    },
+    {
+      "slug": "ai-spending",
+      "title": "How AI changed my spending",
+      "date": "2026-10-27",
+            "video": "Zfl_rx6S5UU",
+      "deck": {"config": "scripts/deck-ai-spending.json", "src": "decks/ai-spending"}
+    },
+    {
+      "slug": "always-on-agents",
+      "title": "Always-on AI agents",
+      "date": "2026-10-18",
+      "summary": "Five ways to run an AI agent that keeps working when you close your laptop, compared on where they run, who holds your data, price and risk.",
+      "external": "https://interafricaaibuilders.com/decks/always-on-agents/",
+      "training": "dashboard"
+    },
+    {
+      "slug": "claude-code-mastery",
+      "title": "Claude Code Mastery",
+      "date": "2026-10-01", "check_date": true,
+      "summary": "A deck on working with Claude Code day to day.",
+      "external": "https://claudecode.ai-tigers.com",
+      "training": "vibe"
+    },
+    {"slug": "claude-for-non-developers", "title": "Claude for non-developers: how my clients edit their own apps", "date": "2026-11-06", "check_date": true, "length": "1:44", "video": "1jeBt15sggg", "summary": "My clients change their own website by asking Claude. This is what that looks like.", "training": "vibe"},
+    {"slug": "dont-hire-a-developer-yet", "title": "Don't hire a developer yet", "date": "2026-11-05", "check_date": true, "length": "2:59", "video": "EAs_amLaS1I", "training": "vibe"},
+    {"slug": "vibe-coding-on-the-go", "title": "Vibe-coding on the go", "date": "2026-11-04", "check_date": true, "length": "2:04", "video": "V8bKmP2R_k0", "training": "dashboard"},
+    {"slug": "claude-started-to-record-me", "title": "Claude started to record me", "date": "2026-11-03", "check_date": true, "length": "1:24", "video": "VMXMglmmBFs"},
+    {"slug": "what-i-built-this-week", "title": "What I built this week", "date": "2026-10-30", "check_date": true, "length": "3:02", "video": "t9zbpO9tL30"},
+    {"slug": "flight-simulator", "title": "A flight simulator in the browser", "date": "2026-10-28", "check_date": true, "length": "4:43", "video": "qkIz9W6Y_tQ", "summary": "A light jet over real terrain and aerial imagery, built with an AI agent."},
+    {"slug": "3d-printer", "title": "3D printer", "date": "2026-10-25", "check_date": true, "length": "0:37", "video": "BJB_nL0AGn0"}
+  ],
+  "trainings": {
+    "vps": {"title": "Set up your own Hetzner VPS", "line": "Your own private server, locked down, with your sites live behind Cloudflare."},
+    "vibe": {"title": "Vibe-code together with GitHub and Claude", "line": "Your team builds and changes software together, with Claude doing the typing."},
+    "dashboard": {"title": "Manage your agents with a custom dashboard", "line": "See what every agent is doing, what's waiting on you, and what it costs."}
+  }
+}

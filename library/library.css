@@ -1,0 +1,52 @@
+/* Library item pages on jorisfalter.com. Same look as the homepage: Bootstrap 3 + styles.css. */
+.lib { max-width: 860px; margin: 40px auto 80px; padding: 0 16px; }
+.lib .meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 12px; }
+.lib h1 { font-size: 40px; font-weight: 200; letter-spacing: 2px; color: #111; margin: 0 0 16px; }
+.lib .summary { font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.7; color: #555; margin-bottom: 32px; }
+.lib h2 { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #bbb; margin: 56px 0 20px; }
+.lib .btn-dark { display: inline-block; padding: 14px 36px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; background: #111; color: #fff; border: 2px solid #111; border-radius: 2px; text-decoration: none; transition: background .25s cubic-bezier(.22,1,.36,1), color .25s cubic-bezier(.22,1,.36,1); }
+.lib .btn-dark:hover { background: transparent; color: #111; text-decoration: none; }
+.lib .buy { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 24px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.lib .price { font-size: 28px; font-weight: 200; color: #111; }
+.lib .fine { font-size: 13px; color: #999; }
+.lib table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.lib td { padding: 8px 12px 8px 0; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #555; }
+.lib td:first-child { white-space: nowrap; color: #999; width: 1%; }
+.lib ol.toc { columns: 2; column-gap: 32px; color: #555; font-size: 14px; line-height: 1.9; padding-left: 20px; }
+.lib .next { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; font-family: Georgia, 'Times New Roman', serif; color: #555; }
+.lib img { border: 0; margin: 0; }
+@media (max-width: 600px) { .lib h1 { font-size: 30px; } .lib ol.toc { columns: 1; } }
+
+/* Homepage additions */
+.tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border: 1px solid #e0e0e0; border-radius: 12px; font-size: 11px; letter-spacing: 1px; color: #888; vertical-align: 1px; }
+.tag.paid { border-color: #111; color: #111; }
+.upd { font-size: 12px; color: #999; margin-left: 8px; }
+.price-line { font-size: 13px; letter-spacing: 2px; color: #111; margin-top: 16px; text-transform: uppercase; }
+.bundle { text-align: center; margin-top: 20px; font-family: Georgia, 'Times New Roman', serif; color: #555; font-size: 17px; }
+.quiet { text-align: center; padding: 60px 16px; border-top: 1px solid #f0f0f0; color: #999; font-size: 14px; }
+.quiet a { color: #555; }
+
+/* Slides: fixed 1920x1080 canvas scaled to the frame, notes below */
+.deck { display: flex; flex-direction: column; gap: 40px; }
+.deck-slide { margin: 0; }
+.deck-scroll { overflow: hidden; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+.deck-frame { --s: .4; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+.deck-frame > section { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; max-width: none; margin: 0; padding: 0; display: flex; flex-direction: column; text-align: left; transform: scale(var(--s)); transform-origin: 0 0; box-sizing: border-box; }
+.deck-frame > section * { margin: 0; box-sizing: border-box; }
+.deck-frame > section div { display: flex; flex-direction: column; }
+.deck-frame h1 { font-size: 96px; font-weight: 600; line-height: 1.1; letter-spacing: 0; }
+.deck-frame h2 { font-size: 64px; font-weight: 600; line-height: 1.15; color: inherit; letter-spacing: 0; text-transform: none; }
+.deck-frame h3 { font-size: 44px; font-weight: 600; line-height: 1.2; color: inherit; }
+.deck-frame p { font-size: 32px; font-weight: 400; line-height: 1.4; }
+.deck-frame img, .deck-frame svg { max-width: none; flex: none; border: 0; margin: 0; }
+.deck-slide figcaption { font-family: Georgia, 'Times New Roman', serif; color: #555; line-height: 1.7; margin-top: 14px; }
+
+/* YouTube: thumbnail first, player after a click */
+.yt { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; overflow: hidden; background: #111; margin-bottom: 8px; }
+.yt img { width: 100%; height: 100%; object-fit: cover; display: block; border: 0; margin: 0; }
+.yt-play { position: absolute; left: 16px; bottom: 16px; width: 60px; height: 60px; border-radius: 50%; background: #111; transition: transform .15s cubic-bezier(.22,1,.36,1); }
+.yt-play::after { content: ''; position: absolute; left: 23px; top: 17px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent #fff; }
+.yt:hover .yt-play { transform: scale(1.08); }
+@media (prefers-reduced-motion: reduce) { .yt-play, .lib .btn-dark { transition: none; } .yt:hover .yt-play { transform: none; } }
+.lib ~ .footer { position: relative; background: #111; }
+.lib ~ .footer p { color: rgba(255,255,255,.5); font-size: 11px; letter-spacing: 2px; }
