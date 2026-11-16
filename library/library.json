@@ -2,6 +2,17 @@
   "_readme": "Source of the Library on jorisfalter.com. Newest first is computed from 'date'. Build: python3 scripts/build-library.py (brand repo). 'check_date': true marks a date still to confirm (shown as '?' in the build).",
   "items": [
     {
+      "slug": "trading-bots",
+      "title": "Claude Code trading bots: 10 months looking for an edge",
+      "date": "2026-11-16",
+      "summary": "Polymarket, Binance and Interactive Brokers: what Claude Code built, the seven ideas I tested, and why none of them became an edge. Real money lost: about $54.",
+      "deck_html": "decks/trading-bots/index.html",
+      "related": [
+        "ai-bots-i-run"
+      ],
+      "training": "vibe"
+    },
+    {
       "slug": "ai-bots-i-run",
       "title": "The AI bots I actually run",
       "date": "2026-11-15",
