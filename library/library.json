@@ -81,7 +81,8 @@
       "date": "2026-10-18",
       "summary": "Five ways to run an AI agent that keeps working when you close your laptop, compared on where they run, who holds your data, price and risk.",
       "external": "https://interafricaaibuilders.com/decks/always-on-agents/",
-      "training": "dashboard"
+      "training": "dashboard",
+      "hide": true
     },
     {
       "slug": "claude-code-mastery",
