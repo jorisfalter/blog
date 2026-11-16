@@ -76,3 +76,24 @@
 .lib summary { cursor: pointer; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #111; padding: 10px 0; }
 @media (max-width: 600px) { .lib .case dl { grid-template-columns: 1fr; gap: 0; } .lib .case dt { margin-top: 8px; } }
 .lib ~ .footer p { margin: 0; padding: 18px 16px; }
+
+/* Show, don't tell: cards */
+.lib .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 28px; }
+.lib .card { display: block; color: inherit; text-decoration: none; }
+.lib .card:hover { text-decoration: none; }
+.lib .card .shot { aspect-ratio: 16/9; background: #f2f2f2; border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.lib .card:hover .shot { transform: translateY(-3px); }
+.lib .card .shot img { width: 100%; height: 100%; object-fit: cover; }
+.lib .card .who { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin: 0 0 4px; }
+.lib .card h3 { font-size: 20px; font-weight: 300; color: #111; margin: 0 0 6px; }
+.lib .card .num { font-size: 15px; color: #555; margin: 0; }
+.lib .card .num b { font-size: 26px; font-weight: 200; color: #111; margin-right: 6px; }
+.lib .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.lib .chips a, .lib .chips span { border: 1px solid #e5e5e5; border-radius: 20px; padding: 6px 14px; font-size: 13px; color: #333; text-decoration: none; }
+.lib .chips a:hover { border-color: #111; }
+.lib .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lib .trio b { display: block; font-size: 15px; color: #111; margin-bottom: 4px; }
+.lib .trio p { margin: 0; font-size: 14px; color: #666; line-height: 1.5; }
+.lib .names { font-size: 17px; color: #111; line-height: 2; }
+.lib .names span { color: #ccc; margin: 0 10px; }
+@media (max-width: 600px) { .lib .cards, .lib .trio { grid-template-columns: 1fr; } }
