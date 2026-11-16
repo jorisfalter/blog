@@ -6,9 +6,10 @@
       "title": "The AI bots I actually run",
       "date": "2026-11-15",
       "summary": "My Claude Code bots: which run on a server, which on my laptop, and what broke along the way.",
-      "video": "qAj3LPchMdk",
+      "video": "JFQml7kWN0U",
       "deck_html": "decks/ai-bots/index.html",
       "related": [
+        "server-security",
         "seo-playbook"
       ],
       "training": "dashboard"
