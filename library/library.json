@@ -2,6 +2,18 @@
   "_readme": "Source of the Library on jorisfalter.com. Newest first is computed from 'date'. Build: python3 scripts/build-library.py (brand repo). 'check_date': true marks a date still to confirm (shown as '?' in the build).",
   "items": [
     {
+      "slug": "ai-bots-i-run",
+      "title": "The AI bots I actually run",
+      "date": "2026-11-15",
+      "summary": "My Claude Code bots: which run on a server, which on my laptop, and what broke along the way.",
+      "video": "qAj3LPchMdk",
+      "deck_html": "decks/ai-bots/index.html",
+      "related": [
+        "seo-playbook"
+      ],
+      "training": "dashboard"
+    },
+    {
       "slug": "agent-vps-playbook",
       "title": "Agent VPS Playbook",
       "date": "2026-10-23",

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The AI Bots I Run</title>
+<meta name="description" content="My Claude Code bots: which run on a server, which on my laptop, and what broke along the way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<style>
+:root{--dark:#15181E;--dark2:#20242C;--cream:#F4F1EA;--card:#FFFDF8;--line:#E2DDD2;--orange:#F0843C;--orange-d:#D9651F;--muted-d:#B9BDC6;--muted-l:#5A606B;--ink-l:#3A3F48;--page:#0D0F13}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--page);overflow:hidden;font-family:'DM Sans',Arial,sans-serif}
+body.idle{cursor:none}
+.slide{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--s,.5));overflow:hidden;display:none;flex-direction:column;padding:128px;gap:56px;font-size:32px;-webkit-font-smoothing:antialiased}
+.slide.on{display:flex}
+.dark{background:var(--dark);color:var(--cream)}
+.light{background:var(--cream);color:var(--dark)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3,.num{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700}
+h1{font-size:136px;line-height:1.05}
+h2{font-size:72px;line-height:1.1}
+h3{font-size:44px;line-height:1.15}
+.kick{font-size:32px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--orange)}
+.sub{font-size:40px;line-height:1.3}
+.dark .sub,.dark .m{color:var(--muted-d)}
+.light .sub,.light .m{color:var(--muted-l)}
+.row{display:flex;gap:32px}
+.col{display:flex;flex-direction:column;gap:20px}
+.card{flex:1;display:flex;flex-direction:column;gap:20px;padding:56px;border-radius:20px}
+.dark .card{background:var(--dark2)}
+.light .card{background:var(--card);border:1px solid var(--line)}
+.card.hot{background:var(--orange);color:var(--dark);border:none}
+.card.hot .m{color:var(--dark)}
+.card.ink{background:var(--dark);color:var(--cream);border:none}
+.card.ink .m{color:var(--muted-d)}
+.card p{font-size:34px;line-height:1.4}
+.line{font-size:48px;font-weight:600;line-height:1.3}
+.line em{font-style:normal;color:var(--orange)}
+.light .line em{color:var(--orange-d)}
+.ic{width:72px;height:72px;flex:none;color:var(--orange)}
+.light .ic{color:var(--orange-d)}
+.card.hot .ic{color:var(--dark)}
+.ic svg{width:100%;height:100%;display:block}
+.num{font-size:200px;line-height:.9}
+.center{justify-content:center}
+.arrow{flex:none;align-self:center;width:80px;height:40px}
+/* bot map */
+.map{display:flex;gap:40px;flex:1}
+.map .side{flex:1;display:flex;flex-direction:column;gap:20px;padding:44px;border-radius:24px;background:var(--dark2)}
+.map .side h3{display:flex;align-items:center;gap:20px}
+.map .side .m{font-size:28px}
+.chips{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.chip{font-size:32px;font-weight:600;padding:16px 28px;border-radius:999px;background:#2C313B;color:var(--muted-d);transition:all .2s}
+.chip.hl{background:var(--orange);color:var(--dark)}
+.map .side.dim{opacity:.45}
+/* notes + overview */
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:rgba(13,15,19,.94);color:#E6E3DC;font-size:18px;line-height:1.5;padding:16px 24px;display:none;z-index:5;border-top:1px solid #333}
+#notes.on{display:block}
+#notes b{color:var(--orange)}
+#hint{position:fixed;right:16px;bottom:12px;color:#777;font-size:13px;z-index:4;transition:opacity .6s}
+body.idle #hint{opacity:0}
+#grid{position:fixed;inset:0;overflow:auto;background:var(--page);display:none;z-index:6;padding:24px 16px}
+#grid.on{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;align-content:start}
+#grid .th{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:6px;cursor:pointer;outline:2px solid transparent}
+#grid .th.cur{outline-color:var(--orange)}
+#grid .th .slide{display:flex;left:0;top:0;transform-origin:0 0;transform:scale(var(--t,.15))}
+#grid .th span{position:absolute;left:8px;top:6px;color:#fff;font-size:13px;background:rgba(0,0,0,.5);padding:2px 6px;border-radius:4px;z-index:2}
+</style>
+</head>
+<body>
+<main id="deck">
+
+<!-- 1 cover -->
+<section class="slide dark center" data-notes="Recently I saw a video by Dan Martell: he uses GrokBot, a personal bot that runs all your systems and can spin out sub-bots.">
+  <p class="kick">Claude Code agents</p>
+  <h1>The AI bots I<br>actually run</h1>
+  <p class="sub" style="width:1300px">Some on a server, some on my laptop.</p>
+</section>
+
+<!-- 2 apps vs my setup -->
+<section class="slide dark" data-notes="GrokBot is what OpenClaw intended to be. Muse (Facebook), Dot (ChatGPT) and apps like Instinct do the same. I have my own server and use Claude Code, and Claude Code bots can now message each other. What it's not good at yet: being proactive. So the bots message me on Telegram (one way, not a conversation), and the Claude app is my one point of contact.">
+  <h2>One personal bot that runs everything</h2>
+  <div class="row" style="flex:1">
+    <div class="card">
+      <h3>The apps</h3>
+      <p>GrokBot · OpenClaw · Muse · Dot · Instinct</p>
+      <p class="m">One bot that runs your systems and spins out sub-bots</p>
+    </div>
+    <div class="card hot">
+      <h3>My setup</h3>
+      <p>Claude Code, on my own server and my laptop</p>
+      <p class="m">The bots message each other, reach me on Telegram, and I talk to them in the Claude app</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 two kinds -->
+<section class="slide dark" data-notes="There are two kinds of bots, and this is why I still have this setup. Laptop: uses a lot of memory and needs the laptop on, open and powered. Server: always on, what OpenClaw intended. But websites see a data center: server bots are bad at using a browser, and more and more sites block bots. E-commerce is always the problem. On the laptop it opens a real browser and I can see it scroll.">
+  <h2>Two kinds of bots</h2>
+  <div class="row" style="flex:1">
+    <div class="card">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+      <h3>Server</h3>
+      <p>Always on</p>
+      <p class="m">Websites see a data center and block it</p>
+    </div>
+    <div class="card hot">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/></svg></span>
+      <h3>Laptop</h3>
+      <p>A real browser, I can watch it scroll</p>
+      <p class="m">Uses memory, needs the laptop open and on</p>
+    </div>
+  </div>
+  <p class="line">The server never sleeps. <em>The laptop has the real browser.</em></p>
+</section>
+
+<!-- 4 the yes -->
+<section class="slide light center" data-notes="The bot does the work, I do the yes. Yesterday my bot opened my old Hotmail to follow up on insurance and bank stuff, the usual suspects where people don't reply.">
+  <h1 style="font-size:120px">The bot does the work.<br><span style="color:var(--orange-d)">I do the yes.</span></h1>
+  <p class="sub">Yesterday: follow-up mails to my insurer and bank, from my old Hotmail.</p>
+</section>
+
+<!-- 5 map: server -->
+<section class="slide dark" data-map="server" data-notes="These are my server bots. The bot-master. A news bot: the news I want to know, local and business. The weather. Power cuts: I live in Malawi, and when there's a power cut it files the ticket with the power company. A coach, my Tony Robbins. Two product bots. And one for how I position myself and sell. The laptop ones come later.">
+  <h2>The server bots</h2>
+</section>
+
+<!-- 6 simple ones -->
+<section class="slide light" data-notes="News, weather, power cuts. Very simple.">
+  <h2>Very simple</h2>
+  <div class="row" style="flex:1">
+    <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>News</h3><p class="m">What I want to know: local and business</p></div>
+    <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h3>Weather</h3><p class="m">Every morning</p></div>
+    <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></svg></span><h3>Power cuts</h3><p class="m">Files the ticket with the power company</p></div>
+  </div>
+</section>
+
+<!-- 7 coach -->
+<section class="slide dark" data-notes="The coach, my Tony Robbins: I tell him something, he texts me back.">
+  <h2>The coach</h2>
+  <div class="row" style="flex:1;align-items:center">
+    <div class="card" style="align-items:center;text-align:center"><span class="ic" style="width:120px;height:120px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></span><h3>Voice message in</h3></div>
+    <svg class="arrow" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h96M84 8l12 17-12 17" fill="none" stroke="#F0843C" stroke-width="5"/></svg>
+    <div class="card hot" style="align-items:center;text-align:center"><span class="ic" style="width:120px;height:120px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><h3>Answer back</h3></div>
+  </div>
+</section>
+
+<!-- 8 A380 -->
+<section class="slide dark" data-notes="The A380 bot: we discussed it in a previous video, it optimizes the SEO. Then the aidreamhouse bot, which builds AI dream houses.">
+  <div class="col"><p class="kick">Product bot · A380 site</p><h2>Two steps up</h2></div>
+  <svg width="1664" height="430" viewBox="0 0 1664 490" aria-label="Google impressions: flat all summer, doubling in September, another 50% in October">
+    <path d="M60,325 L810,325 L840,194 L1286,169 L1310,55 L1620,55 L1620,440 L60,440 Z" fill="#3A2A1F"/>
+    <path d="M60,325 L810,325 L840,194 L1286,169 L1310,55 L1620,55" fill="none" stroke="#F0843C" stroke-width="8" stroke-linejoin="round"/>
+    <line x1="60" y1="440" x2="1620" y2="440" stroke="#5A606B" stroke-width="2"/>
+    <text x="100" y="300" fill="#B9BDC6" font-family="DM Sans, Arial, sans-serif" font-size="28">Flat all summer</text>
+    <text x="860" y="260" fill="#F4F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="56" font-weight="700">×2</text>
+    <text x="1330" y="125" fill="#F4F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="56" font-weight="700">+50%</text>
+    <text x="60" y="480" fill="#8A8F99" font-family="DM Sans, Arial, sans-serif" font-size="24">Jul</text>
+    <text x="798" y="480" fill="#8A8F99" font-family="DM Sans, Arial, sans-serif" font-size="24">Sep</text>
+    <text x="1155" y="480" fill="#8A8F99" font-family="DM Sans, Arial, sans-serif" font-size="24">Oct</text>
+    <text x="1524" y="480" fill="#8A8F99" font-family="DM Sans, Arial, sans-serif" font-size="24">Nov</text>
+  </svg>
+  <p class="line">It optimizes the SEO. <em>More in my previous video →</em></p>
+</section>
+
+<!-- 9 map: laptop -->
+<section class="slide dark" data-map="laptop" data-notes="Now the laptop bots: the ones that need a real browser, or a lot of data.">
+  <h2>The laptop bots</h2>
+</section>
+
+<!-- 10 shopping -->
+<section class="slide light" data-notes="The e-commerce bot goes to Amazon, Bol.com, Takealot. It also looks at houses. It runs locally because it has to use the browser: from the server it gets blocked.">
+  <div class="col"><p class="kick" style="color:var(--orange-d)">The shopping bot</p><h2>Runs on the laptop</h2></div>
+  <div class="row" style="flex:1">
+    <div class="card"><h3>Shops</h3><p>Amazon · Bol.com · Takealot</p></div>
+    <div class="card"><h3>Houses</h3><p>Real estate sites</p></div>
+    <div class="card hot"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/></svg></span><h3>Why the laptop</h3><p class="m">From the server it gets blocked</p></div>
+  </div>
+</section>
+
+<!-- 11 sales -->
+<section class="slide dark" data-notes="The sales bot is similar. It has to look on LinkedIn and other channels, and from a server they all block it.">
+  <div class="col"><p class="kick">The sales bot</p><h2>Same story</h2></div>
+  <div class="row" style="flex:1;align-items:center">
+    <div class="card"><h3>LinkedIn and other channels</h3><p class="m">Finding clients, following up</p></div>
+    <svg class="arrow" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h96M84 8l12 17-12 17" fill="none" stroke="#F0843C" stroke-width="5"/></svg>
+    <div class="card hot"><h3>From a server: blocked</h3><p class="m">So it runs on the laptop</p></div>
+  </div>
+</section>
+
+<!-- 12 youtube -->
+<section class="slide light" data-notes="The YouTube bot, which edits this video. The problem here: sending all the recordings to a server takes longer than just editing them locally.">
+  <div class="col"><p class="kick" style="color:var(--orange-d)">The YouTube bot · it edited this video</p><h2>Too much data for the server</h2></div>
+  <div class="row" style="flex:1;align-items:center">
+    <div class="card"><h3>Upload gigabytes, edit, download</h3><p class="m">Slower</p></div>
+    <div class="card hot"><h3>Edit where the recording is</h3><p class="m">On the laptop</p></div>
+  </div>
+</section>
+
+<!-- 13 migration -->
+<section class="slide dark" data-notes="Both together: I'm moving a website off Squarespace. A bot that's mostly on the laptop: the clicking in Squarespace and Google, the DNS through the Cloudflare API. I do the logins and payments.">
+  <div class="col"><p class="kick">Both together</p><h2>Moving a website off Squarespace</h2></div>
+  <div class="row" style="flex:1">
+    <div class="card"><h3>Browser</h3><p class="m">The clicking in Squarespace and Google</p></div>
+    <div class="card"><h3>API</h3><p class="m">The DNS, through Cloudflare</p></div>
+    <div class="card hot"><h3>Me</h3><p class="m">Logins and payments</p></div>
+  </div>
+</section>
+
+<!-- 15 browser -->
+<section class="slide light" data-notes="How a bot uses my browser, two ways. Apple Events: the bot runs a bit of JavaScript in a Chrome tab. Fast, but blind, and its clicks are fake, so banks, captchas and payment windows say no. The Claude in Chrome extension: it sees the page and clicks for real. Always a new tab, and I log in myself.">
+  <h2>How a bot uses my browser</h2>
+  <div class="row" style="flex:1">
+    <div class="card"><h3>Apple Events</h3><p>Fast, but blind</p><p class="m">Banks and captchas say no</p><p class="line" style="margin-top:auto;color:var(--orange-d)">To read</p></div>
+    <div class="card ink"><h3>Claude in Chrome</h3><p>Sees the page, clicks for real</p><p class="m">For banks, insurers, tricky sites</p><p class="line" style="margin-top:auto;color:var(--orange)">To do</p></div>
+  </div>
+</section>
+
+<!-- 15 the board -->
+<section class="slide dark" data-notes="Before, I had a board. Everyone likes boards; I used to be a project manager, with Jira. But a board only works for tickets you write yourself. When the bot wrote the ticket, I forgot about it. My own system: OneNote, and a paper notebook. Now every bot has its own to-do list, and the important things I write down myself.">
+  <div class="col"><p class="kick">What didn't work</p><h2>A board only works for tickets<br>you write yourself</h2></div>
+  <div class="row" style="flex:1;align-items:center">
+    <div class="card"><h3>The bot writes the ticket</h3><p class="m">I forget it exists</p></div>
+    <svg class="arrow" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 25h96M84 8l12 17-12 17" fill="none" stroke="#F0843C" stroke-width="5"/></svg>
+    <div class="card hot"><h3>Now</h3><p>Every bot its own to-do list</p><p class="m">The important ones I write down myself</p></div>
+  </div>
+</section>
+
+<!-- 16 cost -->
+<section class="slide light center" data-notes="This costs me 24 euros a month: two servers. Claude Max is not included, and then APIs.">
+  <p class="kick" style="color:var(--orange-d)">What it costs</p>
+  <p class="num" style="color:var(--orange-d);font-size:220px">€24<span style="font-size:72px;color:var(--muted-l)"> / month</span></p>
+  <p class="sub">Two servers. Plus Claude Max and some APIs.</p>
+</section>
+
+<!-- 17 close -->
+<section class="slide dark center" data-notes="Thank you for watching.">
+  <h1 style="font-size:112px">Thanks for watching</h1>
+  <p class="sub">Which bot would you build first? Tell me in the comments.</p>
+</section>
+
+</main>
+<div id="notes"></div>
+<div id="grid"></div>
+<div id="hint">← → slides · N notes · O overview · ⌃⌘F fullscreen</div>
+<script>
+(function(){
+  var MAP={server:[["Bot-master","server"],["News","server"],["Weather","server"],["Power cuts","server"],["Coach","server"],["A380 site","server"],["aidreamhouse","server"],["Positioning","server"]],
+           laptop:[["Shopping","laptop"],["Sales","laptop"],["YouTube","laptop"],["Website move","laptop"],["Mail follow-ups","laptop"]]};
+  var ICON={server:'<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#F0843C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg>',
+            laptop:'<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#F0843C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/></svg>'};
+  function side(kind,active){
+    var t=kind==='server'?['Server','Always on']:['Laptop','Real browser, needs the laptop on'];
+    return '<div class="side'+(active?'':' dim')+'"><h3>'+ICON[kind]+t[0]+'</h3><p class="m">'+t[1]+'</p><div class="chips">'+
+      MAP[kind].map(function(b){return '<span class="chip'+(active?' hl':'')+'">'+b[0]+'</span>';}).join('')+'</div></div>';
+  }
+  [].forEach.call(document.querySelectorAll('[data-map]'),function(s){
+    var k=s.getAttribute('data-map');
+    s.insertAdjacentHTML('beforeend','<div class="map">'+side('server',k==='server')+side('laptop',k==='laptop')+'</div>');
+  });
+
+  var S=[].slice.call(document.querySelectorAll('#deck .slide')),i=0;
+  var notes=document.getElementById('notes'),grid=document.getElementById('grid');
+  function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);document.documentElement.style.setProperty('--s',s);S.forEach(function(x){x.style.setProperty('--s',s);});}
+  function show(n){
+    i=Math.max(0,Math.min(S.length-1,n));
+    S.forEach(function(x,j){x.classList.toggle('on',j===i);});
+    notes.innerHTML='<b>'+(i+1)+'/'+S.length+'</b> &nbsp;'+(S[i].getAttribute('data-notes')||'');
+    try{history.replaceState(null,'','#'+(i+1));}catch(e){}
+  }
+  function buildGrid(){
+    grid.innerHTML='';
+    S.forEach(function(x,j){
+      var d=document.createElement('div');d.className='th'+(j===i?' cur':'');
+      d.innerHTML='<span>'+(j+1)+'</span>';var c=x.cloneNode(true);c.classList.add('on');d.appendChild(c);
+      d.onclick=function(){grid.classList.remove('on');show(j);};grid.appendChild(d);
+    });
+    requestAnimationFrame(function(){[].forEach.call(grid.querySelectorAll('.th'),function(t){t.querySelector('.slide').style.setProperty('--t',t.clientWidth/1920);});});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){show(i+1);}
+    else if(k==='ArrowLeft'||k==='PageUp'){show(i-1);}
+    else if(k==='Home'){show(0);}else if(k==='End'){show(S.length-1);}
+    else if(k==='n'||k==='N'){notes.classList.toggle('on');}
+    else if(k==='o'||k==='O'||k==='Escape'){if(grid.classList.contains('on')||k==='Escape')grid.classList.remove('on');else{buildGrid();grid.classList.add('on');}}
+    else return;
+    e.preventDefault();
+  });
+  document.addEventListener('click',function(e){if(grid.classList.contains('on')||e.target.closest('#notes'))return;show(e.clientX>innerWidth/3?i+1:i-1);});
+  var tm;function wake(){document.body.classList.remove('idle');clearTimeout(tm);tm=setTimeout(function(){document.body.classList.add('idle');},2000);}
+  document.addEventListener('mousemove',wake);wake();
+  addEventListener('resize',fit);fit();
+  show((parseInt(location.hash.slice(1),10)||1)-1);
+})();
+</script>
+</body>
+</html>
