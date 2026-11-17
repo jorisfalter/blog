@@ -98,3 +98,7 @@
 .lib .names span { color: #ccc; margin: 0 10px; }
 @media (max-width: 600px) { .lib .cards, .lib .trio { grid-template-columns: 1fr; } }
 .diy { font-size: 13px; color: #999; margin-top: 6px; } .diy a { color: #555; border-bottom: 1px solid #ddd; } .diy a:hover { color: #111; text-decoration: none; border-color: #111; }
+.todo { background: #fff6d6; color: #8a6d00; padding: 1px 6px; border-radius: 2px; font-family: -apple-system, sans-serif; font-size: 13px; }
+.tag.draft { border-color: #e8c34a; color: #8a6d00; background: #fff6d6; }
+.video-slot { max-width: 720px; margin: 0 auto 40px; aspect-ratio: 16/9; background: #f2f2f2; border-radius: 3px; display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; }
+.lib .video-slot { margin: 0 0 40px; }
