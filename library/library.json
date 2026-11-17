@@ -9,8 +9,7 @@
       "deck_html": "decks/trading-bots/index.html",
       "related": [
         "ai-bots-i-run"
-      ],
-      "training": "vibe"
+      ]
     },
     {
       "slug": "ai-bots-i-run",
@@ -23,7 +22,7 @@
         "server-security",
         "seo-playbook"
       ],
-      "training": "dashboard"
+      "training": "agents"
     },
     {
       "slug": "agent-vps-playbook",
@@ -82,7 +81,7 @@
       "date": "2026-10-18",
       "summary": "Five ways to run an AI agent that keeps working when you close your laptop, compared on where they run, who holds your data, price and risk.",
       "external": "https://interafricaaibuilders.com/decks/always-on-agents/",
-      "training": "dashboard",
+      "training": "agents",
       "hide": true
     },
     {
@@ -91,8 +90,7 @@
       "date": "2026-10-01",
       "check_date": true,
       "summary": "A deck on working with Claude Code day to day.",
-      "external": "https://claudecode.ai-tigers.com",
-      "training": "vibe"
+      "external": "https://claudecode.ai-tigers.com"
     },
     {
       "slug": "claude-for-non-developers",
@@ -101,8 +99,7 @@
       "check_date": true,
       "length": "1:44",
       "video": "1jeBt15sggg",
-      "summary": "My clients change their own website by asking Claude. This is what that looks like.",
-      "training": "vibe"
+      "summary": "My clients change their own website by asking Claude. This is what that looks like."
     },
     {
       "slug": "dont-hire-a-developer-yet",
@@ -110,8 +107,7 @@
       "date": "2026-11-05",
       "check_date": true,
       "length": "2:59",
-      "video": "EAs_amLaS1I",
-      "training": "vibe"
+      "video": "EAs_amLaS1I"
     },
     {
       "slug": "vibe-coding-on-the-go",
@@ -119,8 +115,7 @@
       "date": "2026-11-04",
       "check_date": true,
       "length": "2:04",
-      "video": "V8bKmP2R_k0",
-      "training": "dashboard"
+      "video": "V8bKmP2R_k0"
     },
     {
       "slug": "claude-started-to-record-me",
@@ -157,17 +152,18 @@
     }
   ],
   "trainings": {
+    "_cta": "Want this set up with your team? Session: {title}, from $290.",
     "vps": {
       "title": "Set up your own Hetzner VPS",
       "line": "Your own private server, locked down, with your sites live behind Cloudflare."
     },
-    "vibe": {
-      "title": "Vibe-code together with GitHub and Claude",
-      "line": "Your team builds and changes software together, with Claude doing the typing."
+    "agents": {
+      "title": "Your own agents that work together",
+      "line": "Claude Code agents on your server, each with its own job, passing work to each other."
     },
-    "dashboard": {
-      "title": "Manage your agents with a custom dashboard",
-      "line": "See what every agent is doing, what's waiting on you, and what it costs."
+    "models": {
+      "title": "Your own AI model",
+      "line": "Qwen or Mistral on your own GPU server via RunPod. Your data never goes to OpenAI or Anthropic."
     }
   }
 }
