@@ -13,6 +13,18 @@
       "training": "vibe"
     },
     {
+      "slug": "claude-code-seo",
+      "title": "Claude Code SEO: what it found on my hobby site",
+      "date": "2026-11-11",
+      "summary": "What Claude Code and the open-source OpenSEO found on a hobby site with 10k visitors a month, what I fixed, and what it costs: about $1.70 a month for 11 sites.",
+      "video": "LwfIoVCtRO8",
+      "deck_html": "decks/claude-code-seo/index.html",
+      "related": [
+        "seo-playbook",
+        "server-security"
+      ]
+    },
+    {
       "slug": "ai-bots-i-run",
       "title": "The AI bots I actually run",
       "date": "2026-11-15",
