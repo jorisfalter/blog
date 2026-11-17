@@ -38,7 +38,8 @@
       "related": [
         "server-security"
       ],
-      "training": "vps"
+      "training": "vps",
+      "unlisted": true
     },
     {
       "slug": "seo-playbook",
