@@ -102,3 +102,31 @@
 .tag.draft { border-color: #e8c34a; color: #8a6d00; background: #fff6d6; }
 .video-slot { max-width: 720px; margin: 0 auto 40px; aspect-ratio: 16/9; background: #f2f2f2; border-radius: 3px; display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; }
 .lib .video-slot { margin: 0 0 40px; }
+
+/* Sessions homepage (staging) */
+.hero .claim { font-size: clamp(34px, 6vw, 64px); font-weight: 200; letter-spacing: 1px; line-height: 1.15; color: #111; margin: 18px 0 24px; }
+.pitch { padding: 70px 0; }
+.pitch .container { max-width: 960px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 8px; }
+.stats a { color: inherit; text-decoration: none; border-top: 1px solid #111; padding-top: 16px; }
+.stats a:hover { text-decoration: none; }
+.stats b { display: block; font-size: 44px; font-weight: 200; color: #111; line-height: 1.1; }
+.stats span { display: block; margin-top: 8px; font-family: Georgia, serif; color: #555; font-size: 16px; line-height: 1.5; }
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.ba-h { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 12px; }
+.ba ul { list-style: none; padding: 0; margin: 0; }
+.ba li { font-family: Georgia, serif; font-size: 18px; line-height: 1.5; color: #333; padding: 12px 0; border-bottom: 1px solid #eee; }
+.ba > div:first-child li { color: #888; }
+.fit > div:first-child li { color: #333; }
+.fit > div:last-child li { color: #888; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: s; }
+.steps li { counter-increment: s; }
+.steps li::before { content: "0" counter(s); display: block; font-size: 13px; letter-spacing: 3px; color: #bbb; margin-bottom: 10px; }
+.steps b { display: block; font-size: 20px; font-weight: 400; color: #111; margin-bottom: 6px; }
+.steps span { font-family: Georgia, serif; color: #555; font-size: 16px; line-height: 1.5; }
+.guarantee { max-width: 640px; margin: 28px auto 0; text-align: center; font-family: Georgia, serif; font-size: 18px; color: #333; line-height: 1.6; }
+.final { text-align: center; margin-top: 70px; }
+.final p { font-family: Georgia, serif; font-size: 22px; color: #111; margin-bottom: 24px; }
+@media (max-width: 700px) { .stats, .ba, .steps { grid-template-columns: 1fr; } .pitch { padding: 48px 0; } }
+.final .btn-primary-hero { display: inline-block; padding: 16px 40px; font-size: 12px; letter-spacing: 3px; background: #111; color: #fff; text-decoration: none; }
+.hero .claim { max-width: 900px; margin-left: auto; margin-right: auto; text-wrap: balance; }
